@@ -8,4 +8,4 @@ const dealSchema = new mongoose.Schema({
   createdDate: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Deal", dealSchema);
+module.exports = mongoose.model("Deal", dealSchema, "deals");
