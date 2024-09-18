@@ -1,7 +1,7 @@
 const Deal = require("../models/Deal");
 
 // List all deals with pagination
-exports.listDeals = async (req, res) => {
+const listDeals = async (req, res) => {
   try {
     const { page = 1, limit = 10 } = req.query;
     const deals = await Deal.find()
@@ -15,7 +15,7 @@ exports.listDeals = async (req, res) => {
 };
 
 // Create a new deal
-exports.createDeal = async (req, res) => {
+const createDeal = async (req, res) => {
   try {
     const deal = new Deal(req.body);
     await deal.save();
@@ -27,7 +27,7 @@ exports.createDeal = async (req, res) => {
 };
 
 // Update an existing deal
-exports.updateDeal = async (req, res) => {
+const updateDeal = async (req, res) => {
   try {
     const deal = await Deal.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -44,7 +44,7 @@ exports.updateDeal = async (req, res) => {
 };
 
 // Delete a deal
-exports.deleteDeal = async (req, res) => {
+const deleteDeal = async (req, res) => {
   try {
     const deal = await Deal.findByIdAndDelete(req.params.id);
 
@@ -59,7 +59,7 @@ exports.deleteDeal = async (req, res) => {
 };
 
 // Search deals by name
-exports.searchDeals = async (req, res) => {
+const searchDeals = async (req, res) => {
   try {
     const deals = await Deal.find({ name: new RegExp(req.query.name, "i") });
 
@@ -67,4 +67,12 @@ exports.searchDeals = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error searching deals", error });
   }
+};
+
+module.exports = {
+  listDeals,
+  createDeal,
+  updateDeal,
+  deleteDeal,
+  searchDeals,
 };
