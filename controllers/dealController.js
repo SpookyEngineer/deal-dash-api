@@ -61,7 +61,7 @@ const deleteDeal = async (req, res) => {
 // Search deals by name
 const searchDeals = async (req, res) => {
   try {
-    const deals = await Deal.find({ name: new RegExp(req.query.name, "i") });
+    const deals = await Deal.find({ house: new RegExp(req.query.name, "i") });
 
     res.status(200).json(deals);
   } catch (error) {
