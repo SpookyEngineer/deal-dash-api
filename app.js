@@ -1,8 +1,11 @@
 const express = require("express");
 const connectDB = require("./config/db");
-const dealRoutes = require("./routes/dealRoutes");
+
 const app = express();
 const dotenv = require("dotenv");
+
+const dealRoutes = require("./routes/dealRoutes");
+const houseValuesRoutes = require("./routes/houseValuesRoues");
 
 dotenv.config();
 
@@ -14,6 +17,7 @@ app.use(express.json());
 
 // Routes
 app.use("/deals", dealRoutes);
+app.use("/houseValues", houseValuesRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
