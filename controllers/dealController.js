@@ -29,7 +29,7 @@ const createDeal = async (req, res) => {
 
     res.status(201).json(deal);
 
-    console.log("Deal created");
+    console.log(`Deal created with id: ${deal.id}`);
   } catch (error) {
     res.status(500).json({ message: "Error creating deal", error });
   }
