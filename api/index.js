@@ -1,11 +1,11 @@
 const express = require("express");
-const connectDB = require("./config/db");
+const connectDB = require("../config/db");
 
 const app = express();
 const dotenv = require("dotenv");
 
-const dealRoutes = require("./routes/dealRoutes");
-const houseValuesRoutes = require("./routes/houseValuesRoues");
+const dealRoutes = require("../routes/dealRoutes");
+const houseValuesRoutes = require("../routes/houseValuesRoues");
 
 dotenv.config();
 
