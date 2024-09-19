@@ -24,7 +24,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// index.js (or your entry point file)
-module.exports = (req, res) => {
-  res.status(200).send("Betpass assessment backend");
-};
+module.exports = app;
