@@ -4,11 +4,13 @@ const Deal = require("../models/Deal");
 const listDeals = async (req, res) => {
   try {
     const page = parseInt(req.query.page, 10) || 1;
-    const limit = 6; // Number of deals in a page
+    const limit = 6; // Number of deals per page
 
     // Ensure page and limit are positive numbers
     if (page < 1) {
-      return res.status(400).json({ message: "Page must be positive numbers" });
+      return res
+        .status(400)
+        .json({ message: "Page must be a positive number" });
     }
 
     console.log(`Trying to get deals on page: ${page} with limit: ${limit}`);
@@ -17,8 +19,9 @@ const listDeals = async (req, res) => {
     const totalDeals = await Deal.countDocuments();
     const totalPages = Math.ceil(totalDeals / limit);
 
-    // Fetch the deals with pagination
+    // Fetch the deals with pagination and sorting by createdDate in descending order
     const deals = await Deal.find()
+      .sort({ createdDate: -1 }) // Sort by createdDate, -1 for descending order
       .skip((page - 1) * limit)
       .limit(limit);
 
