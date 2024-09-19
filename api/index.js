@@ -16,6 +16,9 @@ connectDB();
 app.use(express.json());
 
 // Routes
+app.get("/", (req, res) =>
+  res.send("Betpass assessment backend online and running")
+);
 app.use("/deals", dealRoutes);
 app.use("/houseValues", houseValuesRoutes);
 
