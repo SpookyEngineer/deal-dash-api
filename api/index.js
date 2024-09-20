@@ -3,6 +3,7 @@ const connectDB = require("../config/db");
 
 const app = express();
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 const dealRoutes = require("../routes/dealRoutes");
 const houseValuesRoutes = require("../routes/houseValuesRoues");
@@ -12,8 +13,10 @@ dotenv.config();
 // Connect to database
 connectDB();
 
-// Middleware to parse JSON requests
-app.use(express.json());
+// Middleware
+app.use(express.json()); // Parse JSON requests
+
+app.use(cors()); // CORS enabled
 
 // Routes
 app.get("/", (req, res) =>
