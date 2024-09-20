@@ -1,15 +1,14 @@
 # Betpass Assessment Backend
 
-This is an API that connects to the MongoDB
+Description: This is an API that connects to the MongoDB
 
 ## Technologies
 
 - **Node.js**: Version 18.20.1
 - **Express.js**: Version 4.21.0
+- **Mongoose**: Version 8.6.3
 - **CORS**: Version 2.8.5
 - **DOTENV**: Version 16.4.5
-
-Here’s the corrected markdown structure for the Installation section:
 
 ## Installation
 
@@ -26,8 +25,6 @@ Here’s the corrected markdown structure for the Installation section:
 ```bash
    npm start
 ```
-
-Here’s an improved version of the optional section with clearer instructions and additional context:
 
 ## Optional: Use Nodemon for Development
 
@@ -60,6 +57,7 @@ This allows for a more efficient development process, as you won't need to manua
 | PUT    | `/deals/:id`    | Updates an existing deal by ID.                         |
 | DELETE | `/deals/:id`    | Deletes a deal by ID.                                   |
 | GET    | `/deals/search` | Searches for deals by house name.                       |
+| GET    | `/house-values` | Fetches the latest house values.                        |
 
 ### Detailed Description
 
@@ -174,4 +172,19 @@ Searches for deals by house name.
   }
   // Additional deal objects matching the search
 ]
+```
+
+#### `GET /house-values`
+
+Fetches the latest house values.
+
+**Response:**
+
+```json
+{
+  "houseValues": [
+    // Example data:
+    1, 2, 3, 4, 5
+  ]
+}
 ```
