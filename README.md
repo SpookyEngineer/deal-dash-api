@@ -1,4 +1,4 @@
-# Betpass Assessment Backend
+# DealDash Backend
 
 Description: This is an API that connects to the MongoDB
 
